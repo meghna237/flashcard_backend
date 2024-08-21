@@ -58,10 +58,9 @@ const signup = async (req, res) => {
     }
 };
 
-// Function to get the list of subjects
 const getSubjects = async (req, res) => {
     try {
-        const { userID } = req.body; // Expect userID in query params
+        const { userID } = req.params;
         const subjects = await subjectsModel.find({ user: userID });
 
         if (!subjects || subjects.length === 0) {
