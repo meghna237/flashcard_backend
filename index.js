@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const authRoutes = require('../routes/dbRoutes.js');
+const authRoutes = require('./routes/dbRoutes.js');
 app.use('/api', authRoutes);
 
 // Catch-all route for unspecified paths
