@@ -1,13 +1,17 @@
-// authRoutes.js
-const router = require('express').Router();
-const flashcardController = require('../controllers/flashcardController');
+const express = require('express');
+const app = express();
 
-router.post('/login', flashcardController.login);
-router.put('/signup', flashcardController.signup);
-router.get('/subjects',  flashcardController.getSubjects);
-router.post('/subjects', flashcardController.addSubject);
-router.get('/questions', flashcardController.getFlashcardsBySubject);
-router.post('/addquestions', flashcardController.addFlashcard);
-router.delete('/questions/:id', flashcardController.deleteFlashcard);
+const cors = require('cors');
+app.use(cors());
 
-module.exports = router;
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
+const authRoutes = require('./routes/dbRoutes.js');
+app.use('/',authRoutes);
+app.use('*', (req, res)=>{
+    res.send("No  Routes")
+})
+
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`Server running on port 4000`));
