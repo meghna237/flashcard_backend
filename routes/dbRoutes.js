@@ -4,7 +4,7 @@ const flashcardController = require('../controllers/flashcardController');
 
 router.post('/login', flashcardController.login);
 router.put('/signup', flashcardController.signup);
-router.get('/subjects/:userID',  flashcardController.getSubjects);
+router.get('/subjects',  flashcardController.getSubjects);
 router.post('/subjects', flashcardController.addSubject);
 router.get('/questions', flashcardController.getFlashcardsBySubject);
 router.post('/addquestions', flashcardController.addFlashcard);
