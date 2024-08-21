@@ -8,7 +8,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 const authRoutes = require('./routes/dbRoutes.js');
-app.use('/',authRoutes);
+app.use('/first',authRoutes);
 app.use('*', (req, res)=>{
     res.send("No  Routes")
 })
