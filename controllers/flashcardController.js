@@ -77,12 +77,12 @@ const getSubjects = async (req, res) => {
 // Add subjects function
 const addSubject = async (req, res) => {
     try {
-        const { name, userID } = req.body; // Expect userID in the request body
+        const { name, userId } = req.body; // Expect userID in the request body
         if (!name) {
             return res.status(400).json({ success: false, message: 'Subject name not entered' });
         }
 
-        const newSubject = new subjectsModel({ name, user: userID });
+        const newSubject = new subjectsModel({ name, user: userId });
         await newSubject.save();
 
         res.status(201).json({ success: true, subject: newSubject });
