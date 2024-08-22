@@ -3,7 +3,7 @@ const router = require('express').Router();
 const flashcardController = require('../controllers/flashcardController');
 
 router.post('/login', flashcardController.login);
-router.put('/signup', flashcardController.signup);
+router.post('/signup', flashcardController.signup);
 router.get('/subjects/:userID',  flashcardController.getSubjects);
 router.post('/subjects', flashcardController.addSubject);
 router.get('/questions', flashcardController.getFlashcardsBySubject);
