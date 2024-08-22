@@ -9,7 +9,7 @@ app.use(express.json());
 
 const authRoutes = require('./routes/dbRoutes.js');
 app.use('/api',authRoutes);
-app.use('*', (req, res)=>{
+app.use('/*', (req, res)=>{
     res.send("No  Routes")
 })
 
